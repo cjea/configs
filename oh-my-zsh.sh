@@ -8,8 +8,6 @@ fi
 # add a function path
 fpath=($ZSH/functions $ZSH/completions $fpath)
 # Load all stock functions (from $fpath files) called below.
-echo "right before compinit, my fpath is:"
-echo $fpath
 autoload -U compaudit compinit
 
 : ${ZSH_DISABLE_COMPFIX:=true}

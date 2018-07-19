@@ -52,8 +52,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colorize bundler zsh-completions)
+fpath=($(echo $fpath | tr ' ' '\n' | sort -u | tr '\n' ' '))
 source ~/.bash_profile
-echo "about to source oh-my-zsh.sh from zshrc"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -91,5 +91,4 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 POWERLEVEL9K_MODE='nerdfont-complete'
 source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
-fpath=($(echo $fpath | tr ' ' '\n' | sort -u | tr '\n' ' '))
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
