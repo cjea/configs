@@ -42,9 +42,6 @@ fi
 unsetopt inc_append_history
 unsetopt share_history
 
-alias histconnect="deploy_history connect -r -j"
-alias c="ssh console"
-
 alias gitplugin="vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh"
 
 dkme () { eval "$(docker-machine env $1)" }
@@ -53,15 +50,3 @@ alias refip="refmt --in-place"
 alias sr="screen -r"
 
 alias local-rabbit="docker run --rm -d -p 35672:5672 --name rabbitmq-local-test rabbitmq"
-
-colo-prod () (cd ~/code/kparanoid && ./kparanoid start colo-service-prod)
-
-cp-colo-creds () {
-	if [ $1 = "staging" ]; then
-		scp $(whoami)@rampmaster:/etc/kubernetes/clients/staging.svc-admin.conf ~/tmp/colo-service-staging  && echo "copying staging creds into ~/tmp/colo-service-staging"
-	elif [ $1 = "prod" ]; then
-		scp $(whoami)@rampmaster:/etc/kubernetes/clients/prod.svc-admin.conf ~/tmp/colo-service-prod && echo "copying prod creds into ~/tmp/colo-service-prod"
-	else
-		echo "please enter either staging or prod"	
-	fi
-}
